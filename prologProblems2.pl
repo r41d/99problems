@@ -27,7 +27,7 @@ is_prime(N) :-
   range(2, SqrtN, Range),
   forall(
     member(X, Range),
-    ( 
+    (
       N rem X \= 0
     )
   ),

@@ -1,16 +1,16 @@
-%    ___   ___    _____           _     _                    
-%   / _ \ / _ \  |  __ \         | |   | |                   
-%  | (_) | (_) | | |__) | __ ___ | |__ | | ___ _ __ ___  ___ 
+%    ___   ___    _____           _     _
+%   / _ \ / _ \  |  __ \         | |   | |
+%  | (_) | (_) | | |__) | __ ___ | |__ | | ___ _ __ ___  ___
 %   \__, |\__, | |  ___/ '__/ _ \| '_ \| |/ _ \ '_ ` _ \/ __|
 %     / /   / /  | |   | | | (_) | |_) | |  __/ | | | | \__ \
 %    /_/   /_/   |_|   |_|  \___/|_.__/|_|\___|_| |_| |_|___/
 
-%   _     ____            _               _     _     _       
-%  / |   |  _ \ _ __ ___ | | ___   __ _  | |   (_)___| |_ ___ 
+%   _     ____            _               _     _     _
+%  / |   |  _ \ _ __ ___ | | ___   __ _  | |   (_)___| |_ ___
 %  | |   | |_) | '__/ _ \| |/ _ \ / _` | | |   | / __| __/ __|
 %  | |_  |  __/| | | (_) | | (_) | (_| | | |___| \__ \ |_\__ \
 %  |_(_) |_|   |_|  \___/|_|\___/ \__, | |_____|_|___/\__|___/
-%                                 |___/                       
+%                                 |___/
 
 % 1.01 (*) Find the last element of a list.
 % my_last(?Elem, +List)/2
@@ -317,7 +317,7 @@ group(Names, [S|Sizes], [G|Groups]) :-
   !,
 
   combination(S, Names, G),
-  
+
   subtract(Names, G, Rest),
   group(Rest, Sizes, Groups).
 
@@ -340,17 +340,18 @@ lfsort(LOL, Res) :-
   retractall(lenfreq(_,_)),
 
   maplist(my_length, LOL, Lengths),
-  
+
   msort(Lengths, LengthsSorted), % msort! sort is WRONG
   encode(LengthsSorted, LengthsSortedEncoded),
   forall(
     member([Freq,Len], LengthsSortedEncoded),
     assert(lenfreq(Freq,Len))
   ),
-  
-  maplist(lenfreq, Frequencies, Lengths),  
+
+  maplist(lenfreq, Frequencies, Lengths),
   zip(Frequencies, LOL , Zip),
 
   sort(0, @=<, Zip, Sorted),
   maplist(snd, Sorted, Res).
+
 
