@@ -12,6 +12,7 @@
 %  |_____(_) /_/   \_\_|  |_|\__|_| |_|_| |_| |_|\___|\__|_|\___|
 
 
+:- use_module(library(arithmetic)). % needed for arithmetic_function
 :- consult(helper).
 :- consult(prologProblems1).
 

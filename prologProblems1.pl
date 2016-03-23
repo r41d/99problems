@@ -12,6 +12,9 @@
 %  |_(_) |_|   |_|  \___/|_|\___/ \__, | |_____|_|___/\__|___/
 %                                 |___/
 
+:- consult(helper).
+
+
 % 1.01 (*) Find the last element of a list.
 % my_last(?Elem, +List)/2
 my_last(X, [X|[]]) :- !.
